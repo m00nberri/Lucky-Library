@@ -48,15 +48,58 @@ table {
 }
 
 #container {
+    background-color: burlywood;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 80vh;
+    align-items: stretch;
+    align-content: center;
+    justify-items: stretch;
     justify-content: center;
 }
 
 #bookshelf {
+    border: 2px black solid;
+    border-radius: 20px;
+    margin-left: 50px;
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: center;
+    justify-items: center;
+}
+
+#controlpanel {
+    margin-right: 50px;
+}
+
+#newBookForm {
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.212);
+}
+
+#formo {
+    padding: 10px;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 5px;
+    align-self: center;
+    justify-self: center;
+}
+
+#formo p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#formButtons {
+    display: flex;
+    justify-content: space-around;
 }
