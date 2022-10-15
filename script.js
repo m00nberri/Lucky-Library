@@ -9,10 +9,12 @@ Book.prototype.info = function () {
     return `${this.title} by ${this.author}, is ${this.pages} pages long, ${(this.haveRead) ? 'finished' : 'not read yet'}`
 }
 
-const libraryBuilding = {
+//Book.prototype.createBookCard = function () {}
+
+const library = {
     bookShelf: [],
-    addBook: function (title, author, pages, haveRead) {
-        let book = (new Book(title, author, pages, haveRead))
+    addBook: function (title, author, pages) {
+        let book = (new Book(title, author, pages))
         this.bookShelf.push(book);
     }
 }
@@ -26,14 +28,42 @@ for (const button of buttons) {
 
 function clickHandler(e) {
     if (e.target.id === 'newBookButton') {
+        clearForm ();
         modal.style.display = 'grid';
     }
     else if (e.target.id === 'closeButton') {
+        clearForm ();
         modal.style.display = 'none';
     }
     else if (e.target.id === 'submitButton') {
-        //do some stuff
+        if (formValidate()) {
+            library.addBook(document.forms['formo']['book title'].value,document.forms['formo']['author'].value,document.forms['formo']['number of pages'].value);
+            modal.style.display = 'none';
+        }
+        else {
+            alert('you dick fuck');
+        }
     }
+    
 }
 
 const modal = document.getElementById('newBookForm');
+
+function formValidate () {
+    let x = document.forms['formo']['book title'].value;
+    let y = document.forms['formo']['author'].value;
+    let z = document.forms['formo']['number of pages'].value;
+    if ((x || y || z) === '') {
+        console.log('buttpeen');
+        return false;
+    }
+    else {
+        return true;
+    }
+};
+
+function clearForm () {
+    document.forms['formo']['book title'].value = '';
+    document.forms['formo']['author'].value = '';
+    document.forms['formo']['number of pages'].value = '';
+};
