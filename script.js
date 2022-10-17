@@ -116,9 +116,11 @@ function clickHandler(e) {
     else if (e.target.classList.contains('readButton')) {
         if (!e.target.classList.contains('read')) {
             e.target.classList.add('read')
+            library.bookShelf[e.target.parentNode.parentNode.id].haveRead = true;
         }
         else {
             e.target.classList.remove('read')
+            library.bookShelf[e.target.parentNode.parentNode.id].haveRead = false;
         }
     }    
 }

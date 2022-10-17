@@ -124,6 +124,7 @@ button:hover {
 .bookCard {
     background-color: white;
     border: 1px black solid;
+    padding: 10px;
     display: grid;
     grid-template-rows: 2.4rem 20px 1fr 40px;
 }
