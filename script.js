@@ -15,6 +15,7 @@ Book.prototype.createBookCard = function () {
     let card = document.createElement('div')
     card.classList.add('bookCard')
     card.id = this.number;
+    
 
     let title = document.createElement('div')
     title.textContent = this.title;
@@ -41,7 +42,7 @@ Book.prototype.createBookCard = function () {
     delButton.textContent = 'Delete'
     delButton.classList.add('delButton')
     delButton.addEventListener("click", (e) => {
-        clickHandler();
+        clickHandler(e);
     })
     buttonContainer.appendChild(delButton)
     card.appendChild(buttonContainer)
@@ -63,8 +64,13 @@ const library = {
             }
             else {
                 book.createBookCard();
-                alert('pp fart')
             }
+        }
+    },
+    cleanShelf: function () {
+        for (const book of this.bookShelf) {
+            document.getElementById(book.number).id = this.bookShelf.indexOf(book)
+            book.number = this.bookShelf.indexOf(book)
         }
     }
 }
@@ -96,7 +102,9 @@ function clickHandler(e) {
         }
     }
     else if (e.target.classList.contains('delButton')) {
-
+        document.getElementById(e.target.parentNode.parentNode.id).remove();
+        library.bookShelf.splice(e.target.parentNode.parentNode.id, 1);
+        library.cleanShelf();
     }
     
 }
