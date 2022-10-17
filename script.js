@@ -14,6 +14,7 @@ Book.prototype.createBookCard = function () {
 
     let card = document.createElement('div')
     card.classList.add('bookCard')
+    card.id = this.number;
 
     let title = document.createElement('div')
     title.textContent = this.title;
@@ -53,7 +54,7 @@ const library = {
     },
     populateShelf: function () {
         for (const book of this.bookShelf) {
-            if (book.title === document.getElementById(book.title)) {
+            if (book.number === document.getElementById(book.number)) {
                 continue
             }
             else {
