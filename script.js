@@ -33,12 +33,16 @@ Book.prototype.createBookCard = function () {
 
     let buttonContainer = document.createElement('div')
     let readLabel = document.createElement('span')
-    readLabel.textContent = 'Read Status:';
+    readLabel.textContent = 'Read Status:'
     let readButton = document.createElement('button')
     buttonContainer.appendChild(readLabel)
     buttonContainer.appendChild(readButton)
     let delButton = document.createElement('button')
     delButton.textContent = 'Delete'
+    delButton.classList.add('delButton')
+    delButton.addEventListener("click", (e) => {
+        clickHandler();
+    })
     buttonContainer.appendChild(delButton)
     card.appendChild(buttonContainer)
 
@@ -54,7 +58,7 @@ const library = {
     },
     populateShelf: function () {
         for (const book of this.bookShelf) {
-            if (book.number === document.getElementById(book.number)) {
+            if (document.getElementById(book.number)) {
                 continue
             }
             else {
@@ -91,6 +95,9 @@ function clickHandler(e) {
             alert('you dick fuck');
         }
     }
+    else if (e.target.classList.contains('delButton')) {
+
+    }
     
 }
 
@@ -114,15 +121,3 @@ function clearForm () {
     document.forms['formo']['author'].value = '';
     document.forms['formo']['number of pages'].value = '';
 };
-
-function populateShelf () {
-    for (const book of library.bookShelf) {
-        if (book.title === document.getElementById(book.title)) {
-            continue
-        }
-        else {
-            book.createBookCard;
-            alert('pp fart')
-        }
-    }
-}
