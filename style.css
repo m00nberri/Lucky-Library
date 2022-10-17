@@ -157,3 +157,15 @@ button:hover {
     color: rgb(163, 163, 163);
     border: rgb(71, 71, 71) 1px solid;
 }
+
+.read {
+    background-color: rgb(182, 133, 0);
+    color: gold;
+    border: goldenrod 1px solid;
+}
+
+.read:hover {
+    background-color: rgb(199, 162, 61);
+    color: gold;
+    border: goldenrod 1px solid;;
+}

@@ -41,6 +41,9 @@ Book.prototype.createBookCard = function () {
     let readButton = document.createElement('button')
     readButton.textContent = 'READ'
     readButton.classList.add('readButton')
+    readButton.addEventListener("click", (e) => {
+        clickHandler(e);
+    })
     buttonContainer.appendChild(readButton)
     let delButton = document.createElement('button')
     delButton.textContent = 'Delete'
@@ -110,7 +113,14 @@ function clickHandler(e) {
         library.bookShelf.splice(e.target.parentNode.parentNode.id, 1);
         library.cleanShelf();
     }
-    
+    else if (e.target.classList.contains('readButton')) {
+        if (!e.target.classList.contains('read')) {
+            e.target.classList.add('read')
+        }
+        else {
+            e.target.classList.remove('read')
+        }
+    }    
 }
 
 const modal = document.getElementById('newBookForm');
