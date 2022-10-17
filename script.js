@@ -105,7 +105,7 @@ function clickHandler(e) {
             library.populateShelf();
         }
         else {
-            alert('you dick fuck');
+            alert('please enter all info');
         }
     }
     else if (e.target.classList.contains('delButton')) {
