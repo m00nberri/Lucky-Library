@@ -46,6 +46,18 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button {
+    all: unset;
+    padding: 5px;
+    background-color: white;
+    border: black 1px solid;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(116, 116, 116);
+    cursor: pointer;
+}
 
 #container {
     background-color: burlywood;
@@ -68,10 +80,10 @@ table {
     padding: 20px;
     overflow: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
     gap: 50px;
-    justify-items: stretch;
+
 }
 
 #controlPanel {
@@ -112,4 +124,36 @@ table {
 .bookCard {
     background-color: white;
     border: 1px black solid;
+    display: grid;
+    grid-template-rows: 2.4rem 20px 1fr 40px;
+}
+
+.title {
+    grid-row: 1/2;
+    font-size: 2rem;
+    font-weight: bold;
+    overflow: auto;
+}
+
+.pageLabel {
+    grid-row: 2/3;
+    display: flex;
+}
+
+.author {
+    grid-row: 3/4;
+    font-size: 1.2rem;
+}
+
+.cardButtons {
+    grid-row: 4/5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.readButton {
+    background-color: gray;
+    color: rgb(163, 163, 163);
+    border: rgb(71, 71, 71) 1px solid;
 }

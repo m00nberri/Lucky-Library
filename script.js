@@ -20,23 +20,27 @@ Book.prototype.createBookCard = function () {
     let title = document.createElement('div')
     title.textContent = this.title;
     title.id = this.title;
+    title.classList.add('title');
     card.appendChild(title)
 
     let author = document.createElement('div')
     author.textContent = this.author;
+    author.classList.add('author');
     card.appendChild(author)
 
     let pages = document.createElement('div')
     let pagesLabel = document.createElement('span')
     pages.textContent = this.pages;
-    pagesLabel.textContent = 'pages';
-    card.appendChild(pages)
+    pagesLabel.textContent = 'Pages: ';
+    pagesLabel.classList.add('pageLabel')
+    card.appendChild(pagesLabel)
+    pagesLabel.appendChild(pages)
 
     let buttonContainer = document.createElement('div')
-    let readLabel = document.createElement('span')
-    readLabel.textContent = 'Read Status:'
+    buttonContainer.classList.add('cardButtons')
     let readButton = document.createElement('button')
-    buttonContainer.appendChild(readLabel)
+    readButton.textContent = 'READ'
+    readButton.classList.add('readButton')
     buttonContainer.appendChild(readButton)
     let delButton = document.createElement('button')
     delButton.textContent = 'Delete'
